@@ -46,7 +46,7 @@ class KnightPathFinder
   end
 
   def find_path(end_pos)
-    @root_node.bfs(end_pos)
+    trace_path_back(@root_node.bfs(end_pos))
   end
 
   def trace_path_back(end_node)
@@ -63,4 +63,4 @@ class KnightPathFinder
 end
 
 k = KnightPathFinder.new([0,0])
-p k.trace_path_back(k.find_path([6,2])) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
+p k.find_path([6,2]) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
