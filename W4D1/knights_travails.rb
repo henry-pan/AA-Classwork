@@ -45,5 +45,22 @@ class KnightPathFinder
     new_positions
   end
 
+  def find_path(end_pos)
+    @root_node.bfs(end_pos)
+  end
+
+  def trace_path_back(end_node)
+    positions = []
+    node = end_node
+    while node.parent != nil
+      positions.unshift(node.value)
+      node = node.parent
+    end
+    positions.unshift(@root_node.value)
+    positions
+  end
+
 end
 
+k = KnightPathFinder.new([0,0])
+p k.trace_path_back(k.find_path([6,2])) # => [[0, 0], [1, 2], [2, 0], [4, 1], [6, 2]]
