@@ -10,7 +10,6 @@ attr_reader :salary
     def bonus(multiplier)
         @salary * multiplier
     end
-
 end
 
 class Manager < Employee
@@ -18,7 +17,6 @@ class Manager < Employee
     def initialize(name, title, salary, boss)
         super
         @sub_employees = []
-
     end
 
     def bonus(multiplier)
@@ -28,6 +26,4 @@ class Manager < Employee
         end
         sum * multiplier
     end
-
-
 end
