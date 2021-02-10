@@ -24,16 +24,20 @@ class Piece
 
   end
 
+  def valid_moves()
+    []
+  end
+
 end
 
 class NullPiece < Piece
 
   include Singleton
   
-  attr_reader :symbol 
+  attr_reader :moves, :symbol
 
   def initialize
-    @null_piece = nil
+    @moves = []
     @symbol = :null
   end
 

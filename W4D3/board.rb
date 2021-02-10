@@ -16,7 +16,8 @@ class Board
     @rows[0][1] = Knight.new("black", self, [0,1])
     @rows[0][2] = Bishop.new("black", self, [0,2])
     @rows[0][3] = Queen.new("black", self, [0,3])
-    @rows[0][4] = King.new("black", self, [0,4])
+    @black_king = King.new("black", self, [0,4])
+    @rows[0][4] = @black_king
     @rows[0][5] = Bishop.new("black", self, [0,5])
     @rows[0][6] = Knight.new("black", self, [0,6])
     @rows[0][7] = Rook.new("black", self, [0,7])
@@ -26,7 +27,8 @@ class Board
     @rows[7][1] = Knight.new("white", self, [7,1])
     @rows[7][2] = Bishop.new("white", self, [7,2])
     @rows[7][3] = Queen.new("white", self, [7,3])
-    @rows[7][4] = King.new("white", self, [7,4])
+    @white_king = King.new("white", self, [7,4])
+    @rows[7][4] = @white_king
     @rows[7][5] = Bishop.new("white", self, [7,5])
     @rows[7][6] = Knight.new("white", self, [7,6])
     @rows[7][7] = Rook.new("white", self, [7,7])
@@ -58,6 +60,28 @@ class Board
   def valid_pos?(pos)
     pos[0] >= 0 && pos[0] <= 7 && pos[1] >= 0 && pos[1] <= 7
   end
+
+  def in_check?(color)
+    @rows.any? do |row|
+      row.any? do |col|
+        if color == "white"
+          col.moves.include?(@white_king.pos)
+        else
+          col.moves.include?(@black_king.pos)
+        end
+      end
+    end
+  end
+
+  def checkmate?(color)
+    @rows.each do |row|
+      row.each do |col|
+        return false if in_check?(color) && !col.valid_moves.empty?
+      end
+    end
+    true if in_check?(color)
+  end
+
 
 end
 
