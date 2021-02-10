@@ -12,7 +12,7 @@ class Board
 
   def populate_board
     @rows[0].each_with_index { |col, i| @rows[0][i] = Piece.new("black", self, [0,i]) }
-    @rows[1].each_with_index { |col, i| @rows[1][i] = Piece.new("black", self, [1,i]) }
+    @rows[1].each_with_index { |col, i| @rows[1][i] = Rook.new("black", self, [1,i]) }
     @rows[6].each_with_index { |col, i| @rows[6][i] = Piece.new("white", self, [6,i]) }
     @rows[7].each_with_index { |col, i| @rows[7][i] = Piece.new("white", self, [7,i]) }
   end
@@ -45,13 +45,14 @@ class Board
 end
 
 b = Board.new
-p b
-puts b[[0,0]]
-puts b[[2,2]]
-b.move_piece([0,0],[2,2])
-puts b[[0,0]]
-puts b[[2,2]]
+# p b
+# puts b[[0,0]]
+# puts b[[2,2]]
+# b.move_piece([0,0],[2,2])
+# puts b[[0,0]]
+# puts b[[2,2]]
 # b.move_piece([234,123],[2,2]) # Start out of bound
 # b.move_piece([0,0],[1,1]) # End has own piece
 # b.move_piece([0,0],[2,123]) # End out of bound
 # b.move_piece([3,3],[2,2]) # Empty start
+p b[[1,1]].moves

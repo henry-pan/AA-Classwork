@@ -27,3 +27,4 @@ class Manager < Employee
     sum * multiplier
   end
 end
+  
