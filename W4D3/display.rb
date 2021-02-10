@@ -57,6 +57,7 @@ b.move_piece("white", [6,6], [4,6])
 # d.render
 # sleep(1)
 b.move_piece("black", [0,3], [4,7])
-d.render
+# d.render
 p b.in_check?("white")
+p "Is this checkmate"
 p b.checkmate?("white")

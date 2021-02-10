@@ -20,12 +20,17 @@ class Piece
     self.is_a?(NullPiece)
   end
 
-  def move_into_check?(end_pos)
-
+  def valid_moves
+    valid = []
+    moves.each { |move| valid << move if !move_into_check?(move) }
+    valid
   end
 
-  def valid_moves()
-    []
+  private
+  def move_into_check?(end_pos)
+    new_copy = Marshal.load(Marshal.dump(@board))
+    new_copy.move_piece(@color, @pos, end_pos)
+    new_copy.in_check?(@color)
   end
 
 end

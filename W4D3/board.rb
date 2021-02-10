@@ -76,6 +76,7 @@ class Board
   def checkmate?(color)
     @rows.each do |row|
       row.each do |col|
+        p col.valid_moves
         return false if in_check?(color) && !col.valid_moves.empty?
       end
     end
