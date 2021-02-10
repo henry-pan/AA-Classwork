@@ -13,7 +13,7 @@ class Piece
   end
 
   def to_s
-    symbol if !empty?
+    empty? ? " " : symbol
   end
 
   def empty?

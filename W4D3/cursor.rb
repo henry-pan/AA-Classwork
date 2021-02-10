@@ -85,16 +85,16 @@ class Cursor
     when :return || :space
       return @cursor_pos
     when :up
-      update_pos(MOVES[up])
+      update_pos(MOVES[:up])
       return nil
     when :down
-      update_pos(MOVES[down])
+      update_pos(MOVES[:down])
       return nil
     when :left
-      update_pos(MOVES[left])
+      update_pos(MOVES[:left])
       return nil
     when :right
-      update_pos(MOVES[right])
+      update_pos(MOVES[:right])
       return nil
     when :ctrl_c
       Process.exit(0)
