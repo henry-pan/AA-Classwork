@@ -115,7 +115,7 @@ class Pawn < Piece
   attr_reader :symbol
 
   def moves
-    
+    forward_steps + side_attacks
   end
 
   private
@@ -139,14 +139,23 @@ class Pawn < Piece
     j = current_pos[1] 
 
     if at_start_row?
-      if @board[[i, j]].is_a?(NullPiece) 
-      
-      end
-    end       
+      steps << [i, j] if @board[[i, j]].is_a?(NullPiece)  
+      i += forward_dir  
+      steps << [i, j] if @board[[i, j]].is_a?(NullPiece) 
+    else
+      steps << [i, j] if @board[[i, j]].is_a?(NullPiece)
+    end
   end
 
 
   def side_attacks
+    steps = []
+    current_pos = self.pos
+    i = current_pos[0] + forward_dir
+    j = current_pos[1] 
+
+    steps << [i, j-1] if j-1 >= 0 && @board[[i, j-1]].color != self.color
+    steps << [i, j+1] if j+1 <= 7 && @board[[i, j+1]].color != self.color 
   end
 
 end
