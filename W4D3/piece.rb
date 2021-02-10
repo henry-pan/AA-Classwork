@@ -3,12 +3,25 @@ require_relative "modules"
 
 class Piece
 
-  attr_reader :color, :board, :pos, :symbol
+  attr_reader :color, :board, :symbol
+  attr_accessor :pos
 
   def initialize(color, board, pos)
     @color = color
     @board = board
     @pos = pos
+  end
+
+  def to_s
+    symbol if !empty?
+  end
+
+  def empty?
+    self.is_a?(NullPiece)
+  end
+
+  def move_into_check?(end_pos)
+
   end
 
 end
@@ -21,6 +34,7 @@ class NullPiece < Piece
 
   def initialize
     @null_piece = nil
+    @symbol = :null
   end
 
 end
@@ -30,6 +44,11 @@ class Queen < Piece
   include Slideable
   
   attr_reader :symbol 
+
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♛
+  end
 
   def move_dirs  
     diagonal_dirs + horizontal_dirs
@@ -43,6 +62,11 @@ class Rook < Piece
   
   attr_reader :symbol 
 
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♜
+  end
+
   def move_dirs  
     horizontal_dirs
   end
@@ -55,8 +79,65 @@ class Bishop < Piece
 
   attr_reader :symbol  
 
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♝
+  end
+
   def move_dirs
     diagonal_dirs
+  end
+
+end
+
+class Knight < Piece
+
+  include Stepable
+
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♞
+  end
+
+  attr_reader :symbol  
+
+  def move_diffs
+    [
+      [-2,-1],
+      [-2, 1],
+      [-1,-2],
+      [-1, 2],
+      [ 1,-2],
+      [ 1, 2],
+      [ 2,-1],
+      [ 2, 1]
+    ]
+  end
+
+end
+
+class King < Piece
+
+  include Stepable
+
+  attr_reader :symbol  
+
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♚
+  end
+
+  def move_diffs
+    [
+      [-1,-1],
+      [-1, 0],
+      [-1, 1],
+      [ 0, 1],
+      [ 0,-1],
+      [ 1,-1],
+      [ 1, 0],
+      [ 1, 1]
+    ]
   end
 
 end
@@ -64,6 +145,11 @@ end
 class Pawn < Piece
 
   attr_reader :symbol
+
+  def initialize(color, board, pos)
+    super(color, board, pos)
+    @symbol = :♟
+  end
 
   def moves
     forward_steps + side_attacks
@@ -106,8 +192,8 @@ class Pawn < Piece
     i = current_pos[0] + forward_dir
     j = current_pos[1] 
 
-    steps << [i, j-1] if j-1 >= 0 && @board[[i, j-1]].color != self.color
-    steps << [i, j+1] if j+1 <= 7 && @board[[i, j+1]].color != self.color
+    steps << [i, j-1] if j-1 >= 0 && !@board[[i, j-1]].is_a?(NullPiece) && @board[[i, j-1]].color != self.color
+    steps << [i, j+1] if j+1 <= 7 && !@board[[i, j+1]].is_a?(NullPiece) && @board[[i, j+1]].color != self.color
 
     steps
   end
