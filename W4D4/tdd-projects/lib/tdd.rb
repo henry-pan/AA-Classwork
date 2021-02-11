@@ -77,5 +77,5 @@ class Towers
 
 end
 
-a = Towers.new
-a.play
+# a = Towers.new
+# a.play
