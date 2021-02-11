@@ -13,7 +13,10 @@ class Display
 
   def render
     system("clear")
-    code_notation = false
+    puts "========================="
+    puts "===       CHESS       ==="
+    puts "========================="
+    code_notation = true
     puts code_notation ? "  #{("0".."7").to_a.join(" ")}" : "  #{("a".."h").to_a.join(" ")}"
     
     x, y = @cursor.cursor_pos
@@ -40,23 +43,3 @@ class Display
     end
   end
 end
-
-b = Board.new
-d = Display.new(b)
-# while true
-# d.render
-# d.cursor.get_input
-# end
-b.move_piece("white", [6,5], [5,5])
-d.render
-sleep(1)
-b.move_piece("black", [1,4], [3,4])
-d.render
-sleep(1)
-b.move_piece("white", [6,6], [4,6])
-d.render
-sleep(1)
-b.move_piece("black", [0,3], [4,7])
-d.render
-
-p b.checkmate?("white")
