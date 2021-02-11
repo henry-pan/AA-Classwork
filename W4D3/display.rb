@@ -48,16 +48,15 @@ d = Display.new(b)
 # d.cursor.get_input
 # end
 b.move_piece("white", [6,5], [5,5])
-# d.render
-# sleep(1)
+d.render
+sleep(1)
 b.move_piece("black", [1,4], [3,4])
-# d.render
-# sleep(1)
+d.render
+sleep(1)
 b.move_piece("white", [6,6], [4,6])
-# d.render
-# sleep(1)
+d.render
+sleep(1)
 b.move_piece("black", [0,3], [4,7])
-# d.render
-p b.in_check?("white")
-p "Is this checkmate"
+d.render
+
 p b.checkmate?("white")

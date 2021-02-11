@@ -54,7 +54,19 @@ class Board
     self[end_pos], self[start_pos] = self[start_pos], self[end_pos]
 
     self[end_pos].pos = end_pos
+    raise "Cannot move into check" if in_check?(color) 
+  end
 
+  # For use with duped board for lookahead
+  def move_piece!(color, start_pos, end_pos)
+    raise "Start position is out of bounds" if !valid_pos?(start_pos)
+    raise "End position is out of bounds" if !valid_pos?(end_pos)
+    raise "Start position is empty" if self[start_pos] == @null_piece
+    raise "End position contains own piece" if color == self[end_pos].color
+
+    self[end_pos], self[start_pos] = self[start_pos], self[end_pos]
+
+    self[end_pos].pos = end_pos
   end
 
   def valid_pos?(pos)
@@ -76,11 +88,10 @@ class Board
   def checkmate?(color)
     @rows.each do |row|
       row.each do |col|
-        p col.valid_moves
-        return false if in_check?(color) && !col.valid_moves.empty?
+        return false if !col.valid_moves.empty? && col.color == color
       end
     end
-    true if in_check?(color)
+    in_check?(color)
   end
 
 

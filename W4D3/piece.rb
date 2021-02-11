@@ -29,7 +29,7 @@ class Piece
   private
   def move_into_check?(end_pos)
     new_copy = Marshal.load(Marshal.dump(@board))
-    new_copy.move_piece(@color, @pos, end_pos)
+    new_copy.move_piece!(@color, @pos, end_pos)
     new_copy.in_check?(@color)
   end
 
