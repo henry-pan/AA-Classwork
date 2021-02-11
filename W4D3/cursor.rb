@@ -111,4 +111,5 @@ class Cursor
       @cursor_pos[1] = y
     end
   end
+  
 end

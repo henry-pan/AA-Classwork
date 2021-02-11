@@ -17,13 +17,14 @@ class Game
     puts "=== Welcome to Chess ==="
     puts "========================"
     sleep(2)
+    system("clear")
 
     while !@board.checkmate?(@current_player.color)
-      @display.render
       notify_players
       @current_player.make_move(@board)
       swap_turn!
     end
+    system("clear")
     swap_turn!
     @display.render
     puts "Congratulations, #{@current_player.color}, you win!"
@@ -32,6 +33,7 @@ class Game
   private
   def notify_players
     puts "-- #{@current_player.color.capitalize}, it's your move! -- "
+    puts "Use the arrow keys to select a piece, and press enter to move."
   end
 
   def swap_turn!

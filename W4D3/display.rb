@@ -12,7 +12,6 @@ class Display
   end
 
   def render
-    system("clear")
     puts "========================="
     puts "===       CHESS       ==="
     puts "========================="
@@ -42,4 +41,5 @@ class Display
       puts ""
     end
   end
+  
 end

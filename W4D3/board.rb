@@ -94,5 +94,4 @@ class Board
     in_check?(color)
   end
 
-
 end
