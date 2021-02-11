@@ -46,6 +46,36 @@ def stock_picker(arr)
   best_days
 end
 
+class Towers
+
+  attr_accessor :piles
+
+  def initialize
+    @piles = [[4,3,2,1],[],[]]
+  end
+
+  def move(start_pos, end_pos)
+    if piles[end_pos].empty? || (piles[start_pos][-1] < piles[end_pos][0])
+      piles[end_pos] << piles[start_pos].pop
+    end
+    p @piles
+  end
+
+  def won?
+    [1,2].any? { |index| piles[index].length == 4 }
+  end
+
+  def play
+    until won?
+      puts "Please enter the start position and end position (separate by a space)."
+      start_pos, end_pos = gets.chomp.split(" ").map(&:to_i)
+      move(start_pos, end_pos)
+    end
+    puts "You win!"
+  end
 
 
+end
 
+a = Towers.new
+a.play

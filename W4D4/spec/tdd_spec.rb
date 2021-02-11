@@ -59,3 +59,39 @@ describe "stock_picker" do
   end 
 
 end
+
+describe Towers do
+
+  subject(:tower) { Towers.new }
+
+  describe "#initialize" do
+    it "should get piles" do
+      expect(tower.piles).to eq([[4,3,2,1],[],[]])
+    end
+  end
+
+  describe "#won?" do
+    it "should return true if the length of the second element is 4" do
+      # @piles = [[],[4,3,2,1],[]]
+      tower.piles = [[],[4,3,2,1],[]]
+      expect(tower.won?).to be true
+    end
+  end
+
+  describe "#move" do
+    it "should do nothing if attempting to put a larger disc on top of a smaller disc" do
+      tower.piles = [[4,3,2],[1],[]]
+      tower.move(0,1)
+      expect(tower.piles).to eq([[4,3,2],[1],[]])
+    end
+
+    it "should move a disc from the start position to end position" do
+      tower.piles = [[4,3],[1],[2]]
+      tower.move(1,2)
+      expect(tower.piles).to eq ([[4,3],[],[2,1]])
+    end
+
+  end
+
+
+end
