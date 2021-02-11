@@ -51,7 +51,7 @@ class Board
     raise "End position contains own piece" if color == self[end_pos].color
 
     # puts "Moving (#{color} #{self[start_pos].symbol}) #{start_pos} to #{end_pos}"
-    self[end_pos], self[start_pos] = self[start_pos], self[end_pos]
+    self[end_pos], self[start_pos] = self[start_pos], @null_piece
 
     self[end_pos].pos = end_pos
     raise "Cannot move into check" if in_check?(color) 
