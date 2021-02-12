@@ -13,4 +13,12 @@ class Deck
     end
   end
 
+  def shuffle!
+    @cards.shuffle!
+  end
+
+  def deal
+    @cards.pop
+  end
+
 end
