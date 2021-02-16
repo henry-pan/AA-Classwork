@@ -36,51 +36,67 @@ class LinkedList
   end
 
   def first
-    @head
+    @head.next
   end
 
   def last
-    @tail
+    @tail.prev
   end
 
   def empty?
-    @head.key.nil?
+    @head.next == @tail
   end
 
   def get(key)
+    self.each { |node| return node.val if node.key == key }
+    nil
   end
 
   def include?(key)
+    self.each { |node| return true if node.key == key }
+    false
   end
 
   def append(key, val)
     new_node = Node.new(key, val)
-    if @head.key.nil?
-      @head = new_node
-      @head.next = @tail
-      @tail.prev = @head
-    elsif @tail.key.nil?
-      @tail = new_node
-      @tail.prev = @head
-      @head.next = @tail
-    else
-      new_node.prev = @tail
-      @tail.next = new_node
-      @tail = new_node
-    end
+    new_node.prev = @tail.prev
+    @tail.prev.next = new_node
+    @tail.prev = new_node
+    new_node.next = @tail
   end
 
   def update(key, val)
+    self.each do |node|
+      if node.key == key
+        node.val = val
+        break
+      end
+    end
   end
 
   def remove(key)
+    self.each do |node|
+      if node.key == key
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        break 
+      end
+    end
   end
 
-  def each
+  def each(&prc)
+    prc ||= Proc.new { |node| node }
+
+    current_node = first
+    while current_node != @tail
+      prc.call(current_node)
+      current_node = current_node.next
+    end
+
   end
 
   # uncomment when you have `each` working and `Enumerable` included
-  # def to_s
-  #   inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
-  # end
+  def to_s
+    inject([]) { |acc, link| acc << "[#{link.key}, #{link.val}]" }.join(", ")
+  end
 end

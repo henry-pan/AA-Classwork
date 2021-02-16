@@ -9,12 +9,15 @@ class HashMap
   end
 
   def include?(key)
+    
   end
 
   def set(key, val)
   end
 
   def get(key)
+    key_hash = key.hash
+    if @store[key_hash % num_buckets].include?(key) 
   end
 
   def delete(key)
