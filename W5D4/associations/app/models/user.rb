@@ -18,4 +18,8 @@ class User < ApplicationRecord
     through: :enrollments,
     source: :course
 
+  has_many :taught_courses,
+    foreign_key: :instructor_id,
+    class_name: :Course
+
 end
