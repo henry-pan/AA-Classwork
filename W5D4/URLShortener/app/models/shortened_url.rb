@@ -21,4 +21,7 @@ class ShortenedUrl < ApplicationRecord
   belongs_to :submitter,
     foreign_key: :user_id,
     class_name: :User
+
+  # has_many :visitors,
+
 end

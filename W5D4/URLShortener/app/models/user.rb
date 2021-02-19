@@ -6,4 +6,6 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :ShortenedUrl
 
+  # has_many :visited_urls,
+
 end
