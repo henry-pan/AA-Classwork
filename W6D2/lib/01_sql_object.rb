@@ -77,7 +77,6 @@ class SQLObject
 
   def attributes
     @attributes ||= {}
-    @attributes
   end
 
   def attribute_values
