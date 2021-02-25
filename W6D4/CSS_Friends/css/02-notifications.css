@@ -24,7 +24,9 @@ li:hover .badge {
   position: absolute;
   background: white;
   white-space: nowrap;
-  border: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .header-notifications > li {
