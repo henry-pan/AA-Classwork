@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+User.destroy_all
+Artwork.destroy_all
+ArtworkShare.destroy_all
+Comment.destroy_all
 user1 = User.create!(username: 'Henry')
 user2 = User.create!(username: 'Lamar')
 artwork1 = Artwork.create!(title: 'Art 1', image_url: 'test.com', artist_id: user1.id)
