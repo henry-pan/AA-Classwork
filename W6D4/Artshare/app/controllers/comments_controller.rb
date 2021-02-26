@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
 
   def index
-    
     if params[:user_id]
       comments = Comment.where("user_id = ?", params[:user_id])
     elsif params[:artwork_id]
