@@ -10,4 +10,14 @@ class CatsController < ApplicationController
     render :show
   end
 
+  def new
+    @cat = Cat.new
+    render :new
+  end
+
+  def edit
+    @cat = Cat.find_by(id: params[:id])
+    render :edit
+  end
+
 end
