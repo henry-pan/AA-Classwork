@@ -4,22 +4,22 @@
   <input type = "hidden" name = "_method" value = "PATCH">
 
   <label>Name:
-    <input type="text" name="@cat[name]" value="<%= @cat.name %>"> 
+    <input type="text" name="cat[name]" value="<%= @cat.name %>"> 
   </label>
   <br><br>
 
   <label>Sex:
     <% if @cat.sex == "M" %>
-      <input type="radio" id="male" name="@cat[sex]" value="M" checked>
+      <input type="radio" id="male" name="cat[sex]" value="M" checked>
       <label for="male">M</label>
 
-      <input type="radio" id="female" name="@cat[sex]" value="F">
+      <input type="radio" id="female" name="cat[sex]" value="F">
       <label for="female">F</label>
     <% else %>
-      <input type="radio" id="male" name="@cat[sex]" value="M">
+      <input type="radio" id="male" name="cat[sex]" value="M">
       <label for="male">M</label>
 
-      <input type="radio" id="female" name="@cat[sex]" value="F" checked>
+      <input type="radio" id="female" name="cat[sex]" value="F" checked>
       <label for="female">F</label>
     <% end %>
   </label>
@@ -27,7 +27,7 @@
   <br><br>
 
   <label>Color:</label>
-  <select name="@cat[color]">
+  <select name="cat[color]">
     <option disabled>--Select a color--</option>
     <% @cat.colors.each do |color| %>
       <% if @cat.color == color %>
@@ -41,14 +41,14 @@
   <br><br>
 
   <label>Birthdate:
-    <input type="date" name="@cat[birth_date]" value="<%= @cat.birth_date %>"> 
+    <input type="date" name="cat[birth_date]" value="<%= @cat.birth_date %>"> 
   </label>
 
   <br><br>
 
   <label>Description:</label>
-  <textarea name="@cat[description]"><%= @cat.description %></textarea>
+  <textarea name="cat[description]"><%= @cat.description %></textarea>
   <br><br>
   <input type="submit" value="Submit">
 
-</form>4
+</form>
