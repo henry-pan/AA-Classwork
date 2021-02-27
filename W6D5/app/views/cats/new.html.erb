@@ -1,11 +1,12 @@
 <h1>Enter Cat Information</h1>
 
-<form>
+<form action="<%= cats_url %>" method = "POST">
 
 <label>Name:
   <input type="text" name="@cat[name]" value="<%= @cat.name %>"> 
 </label>
 <br><br>
+
 <label>Sex:
   <input type="radio" id="male" name="@cat[sex]" value="M">
   <label for="male">M</label>
@@ -13,21 +14,25 @@
   <label for="female">F</label>
 </label>
 <br><br>
+
 <label>Color:</label>
-<select>
+<select name="@cat[color]">
   <option selected disabled>--Select a color--</option>
   <% @cat.colors.each do |color| %>
-    <option value="<% color %>"><%= color %></option>
+    <option value="<%= color %>"><%= color %></option>
   <% end %>
 </select>
 <br><br>
+
 <label>Birthdate:
   <input type="date" name="@cat[birth_date]" value="<%= @cat.birth_date %>"> 
 </label>
 <br><br>
+
 <label>Description:</label>
 <textarea name="@cat[description]" value="<%= @cat.description %>"> </textarea>
 <br><br>
+
 <input type="submit" value="Submit">
 
 </form>

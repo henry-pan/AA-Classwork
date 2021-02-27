@@ -1,37 +1,54 @@
 <h1>Edit Cat Information</h1>
 
-<form>
+<form action="<%= cat_url(@cat) %>" method = "POST">
+  <input type = "hidden" name = "_method" value = "PATCH">
 
-<label>Name:
-  <input type="text" name="@cat[name]" value="<%= @cat.name %>"> 
-</label>
-<br><br>
-<label>Sex:
-  <input type="radio" id="male" name="@cat[sex]" value="M">
-  <label for="male">M</label>
-  <input type="radio" id="female" name="@cat[sex]" value="F">
-  <label for="female">F</label>
-</label>
-<br><br>
-<label>Color:</label>
-<select>
-  <option disabled>--Select a color--</option>
-  <% @cat.colors.each do |color| %>
-    <% if @cat.color == color %>
-      <option selected value="<% color %>"><%= color %></option>
+  <label>Name:
+    <input type="text" name="@cat[name]" value="<%= @cat.name %>"> 
+  </label>
+  <br><br>
+
+  <label>Sex:
+    <% if @cat.sex == "M" %>
+      <input type="radio" id="male" name="@cat[sex]" value="M" checked>
+      <label for="male">M</label>
+
+      <input type="radio" id="female" name="@cat[sex]" value="F">
+      <label for="female">F</label>
     <% else %>
-      <option value="<% color %>"><%= color %></option>
-    <% end %>
-  <% end %>
-</select>
-<br><br>
-<label>Birthdate:
-  <input type="date" name="@cat[birth_date]" value="<%= @cat.birth_date %>"> 
-</label>
-<br><br>
-<label>Description:</label>
-<textarea name="@cat[description]"><%= @cat.description %></textarea>
-<br><br>
-<input type="submit" value="Submit">
+      <input type="radio" id="male" name="@cat[sex]" value="M">
+      <label for="male">M</label>
 
-</form>
+      <input type="radio" id="female" name="@cat[sex]" value="F" checked>
+      <label for="female">F</label>
+    <% end %>
+  </label>
+
+  <br><br>
+
+  <label>Color:</label>
+  <select name="@cat[color]">
+    <option disabled>--Select a color--</option>
+    <% @cat.colors.each do |color| %>
+      <% if @cat.color == color %>
+        <option selected value="<%= color %>"><%= color %></option>
+      <% else %>
+        <option value="<%= color %>"><%= color %></option>
+      <% end %>
+    <% end %>
+  </select>
+
+  <br><br>
+
+  <label>Birthdate:
+    <input type="date" name="@cat[birth_date]" value="<%= @cat.birth_date %>"> 
+  </label>
+
+  <br><br>
+
+  <label>Description:</label>
+  <textarea name="@cat[description]"><%= @cat.description %></textarea>
+  <br><br>
+  <input type="submit" value="Submit">
+
+</form>4
