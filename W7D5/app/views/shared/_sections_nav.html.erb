@@ -1,0 +1,22 @@
+<% arr = ["World", "San Francisco", "New York", "Bootcamp Prep", "Jumpstart", "Online", "Marketing", "Sales", "TalentMatch", "Alumni", "All"] %>
+<nav class="section-nav">
+
+  <ul>
+    <% arr.each do |text| %>
+      <li>
+        <a href="#"><%= text %></a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div id="search-modal">
+    <form action="#" method="get">
+      <input type="search" placeholder="Search App Academy Times" value>
+      <button type="submit">GO</button>
+    </form>
+    <div class="close">
+      <i class="fas fa-times-circle" ></i>
+    </div>
+
+  </div>
+</nav>
