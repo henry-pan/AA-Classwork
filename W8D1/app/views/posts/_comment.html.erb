@@ -1,0 +1,10 @@
+<ul>
+  <% comment.child_comments.each do |child| %>
+    <li>
+      <p>Posted By: <%= child.author.username %></p>
+      <p><%= child.content %></p>
+      <a href="<%=comment_url(child)%>">Reply</a>
+      <%= render "comment", comment: child %>
+    </li>
+  <% end %>
+</ul>

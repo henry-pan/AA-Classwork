@@ -10906,3 +10906,40 @@ Completed 200 OK in 609ms (Views: 607.4ms | ActiveRecord: 0.0ms)
 Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2021-03-05 18:19:53 -0800
 Started GET "/assets/AA_Times_Logo.png" for 127.0.0.1 at 2021-03-05 18:19:53 -0800
 Started GET "/assets/new_office.jpg" for 127.0.0.1 at 2021-03-05 18:19:53 -0800
+Started GET "/" for 127.0.0.1 at 2021-03-06 00:23:20 -0800
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /home/henry/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_gear_dropdown.html.erb (3.5ms)
+  Rendered shared/_sections_sidebar.html.erb (2.9ms)
+  Rendered shared/_main_nav.html.erb (13.4ms)
+  Rendered shared/_masthead.html.erb (1.1ms)
+  Rendered shared/_sections_nav.html.erb (0.7ms)
+  Rendered shared/_search_modal.html.erb (0.3ms)
+  Rendered shared/_main_content.html.erb (2.7ms)
+  Rendered static_pages/index.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 687ms (Views: 683.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1cb4d6fca3934fcda61b30550294f7ddd1a944ab8fc9cbe5da42937a2284be40.css?body=1" for 127.0.0.1 at 2021-03-06 00:23:24 -0800
+Started GET "/assets/new_office.jpg" for 127.0.0.1 at 2021-03-06 00:23:24 -0800
+Started GET "/assets/AA_Times_Logo.png" for 127.0.0.1 at 2021-03-06 00:23:24 -0800
+Started GET "/" for 127.0.0.1 at 2021-03-06 00:27:01 -0800
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_gear_dropdown.html.erb (0.4ms)
+  Rendered shared/_sections_sidebar.html.erb (2.4ms)
+  Rendered shared/_main_nav.html.erb (8.1ms)
+  Rendered shared/_masthead.html.erb (0.3ms)
+  Rendered shared/_sections_nav.html.erb (0.9ms)
+  Rendered shared/_search_modal.html.erb (0.3ms)
+  Rendered shared/_main_content.html.erb (0.7ms)
+  Rendered static_pages/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 54ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-1cb4d6fca3934fcda61b30550294f7ddd1a944ab8fc9cbe5da42937a2284be40.css?body=1" for 127.0.0.1 at 2021-03-06 00:27:03 -0800
+Started GET "/assets/components/modal.self-52188644dbb47def5ee35ae02e69eb567ca9b664472357a8a5789dd39032a265.js?body=1" for 127.0.0.1 at 2021-03-06 00:27:03 -0800
+Started GET "/assets/components/sidebar.self-7371ae672294fc968516fca8ad8ddaf2b042d06500e2eec776161b6fe54c12cf.js?body=1" for 127.0.0.1 at 2021-03-06 00:27:03 -0800
+Started GET "/assets/new_office.jpg" for 127.0.0.1 at 2021-03-06 00:27:03 -0800
+Started GET "/assets/AA_Times_Logo.png" for 127.0.0.1 at 2021-03-06 00:27:03 -0800

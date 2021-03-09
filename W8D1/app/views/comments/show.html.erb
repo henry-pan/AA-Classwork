@@ -1,0 +1,22 @@
+<h1><%= @comment.author.username %>'s Comment</h1>
+<p><%= @comment.content %></p>
+
+<h2>Replies</h2>
+<form action="<%=comments_url%>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label>Content
+    <input type="text" name="comment[content]" value="">
+  </label>
+  <input type="hidden" name="comment[author_id]" value="<%=current_user.id%>">
+  <input type="hidden" name="comment[post_id]" value="<%=@comment.post_id%>">
+  <input type="hidden" name="comment[parent_comment_id]" value="<%=@comment.id%>">
+  <input type="submit" value="Post Comment">
+</form>
+<ul>
+  <% @comment.child_comments.each do |child| %>
+    <li>
+        <p>Posted By: <%= child.author.username %></p>
+        <p><%= child.content %></p>
+      </li>
+  <% end %>
+</ul>

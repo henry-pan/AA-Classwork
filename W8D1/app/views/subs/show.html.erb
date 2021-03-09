@@ -1,0 +1,16 @@
+<h1>Welcome to <%= @sub.title %></h1>
+<a href="<%= edit_sub_url(@sub) %>">Edit Sub</a>
+<h2>Created by <%= @sub.moderator.username %></h2>
+<p><%= @sub.description %></p>
+
+<h2>Posts</h2>
+
+<% unless @sub.posts.empty? %>
+  <ul>
+    <% @sub.posts.each do |post| %>
+      <li><a href="<%=post_url(post)%>"><%= post.title %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p><%= @sub.title %> has no posts</p>
+<% end %>
