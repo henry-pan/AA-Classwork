@@ -42,6 +42,6 @@ Array.prototype.transpose = function() {
   return result;
 }
 
-const test = [[0,1,2],[3,4,5],[6,7,8]];
-console.log(test.transpose());
-console.log(test);
+// const test = [[0,1,2],[3,4,5],[6,7,8]];
+// console.log(test.transpose());
+// console.log(test);
