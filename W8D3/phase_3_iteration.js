@@ -28,4 +28,4 @@ String.prototype.substrings = function() {
   return result;
 }
 
-console.log("Hello".substrings());
+// console.log("Hello".substrings());
