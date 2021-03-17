@@ -7,7 +7,7 @@ const astOptions = {
 }
 
 function Asteroid (options)  {
-  MovingObject.call(this, {pos: options.pos, vel: Util.randomVec(2), color: astOptions.COLOR, radius: astOptions.RADIUS});
+  MovingObject.call(this, {pos: options.pos, vel: Util.randomVec(2), color: astOptions.COLOR, radius: astOptions.RADIUS, game: options.game});
 }
 
 Util.inherits(Asteroid, MovingObject);
