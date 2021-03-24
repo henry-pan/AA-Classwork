@@ -9,7 +9,7 @@ class Tile extends React.Component{
 
   render() {
     return (
-      <p>T</p>
+      <span>T</span>
     );
   }
 }

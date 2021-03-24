@@ -8,8 +8,18 @@ class Board extends React.Component{
   }
 
   render() {
+    const board = this.props.board;
+    const boardRows = board.grid.map((row, i) => {
+      return (
+      <div>
+        {row.map((tile, j) => {
+          return (<Tile tile={tile} updateGame={this.props.updateGame} key={`${i}-${j}`}/>);
+          }
+        )}
+      </div>);
+    });
     return(
-      <div><Tile /></div>
+      <div className="board">{boardRows}</div>
     );
   }
 }
