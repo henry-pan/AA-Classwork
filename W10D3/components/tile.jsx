@@ -7,8 +7,8 @@ class Tile extends React.Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    const flagging = true;
+  handleClick(e) {
+    const flagging = e.altKey;
     this.props.updateGame(this.props.tile, flagging);
   }
   

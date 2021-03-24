@@ -215,8 +215,8 @@ var Tile = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Tile, [{
     key: "handleClick",
-    value: function handleClick() {
-      var flagging = true;
+    value: function handleClick(e) {
+      var flagging = e.altKey;
       this.props.updateGame(this.props.tile, flagging);
     }
   }, {
