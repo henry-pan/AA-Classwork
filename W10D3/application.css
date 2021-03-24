@@ -1,0 +1,13 @@
+.unexplored {
+  border-style: inset;
+  border-style: outset;
+  width: 32px;
+  height: 32px;
+}
+
+
+
+.row {
+  display: flex;
+
+}

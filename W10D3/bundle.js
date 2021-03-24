@@ -59,7 +59,10 @@ var Board = /*#__PURE__*/function (_React$Component) {
 
       var board = this.props.board;
       var boardRows = board.grid.map(function (row, i) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, row.map(function (tile, j) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "row",
+          key: "row-".concat(i)
+        }, row.map(function (tile, j) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_tile__WEBPACK_IMPORTED_MODULE_2__.default, {
             tile: tile,
             updateGame: _this.props.updateGame,
@@ -201,15 +204,48 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Tile);
 
   function Tile(props) {
+    var _this;
+
     _classCallCheck(this, Tile);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Tile, [{
+    key: "handleClick",
+    value: function handleClick() {
+      var flagging = true;
+      this.props.updateGame(this.props.tile, flagging);
+    }
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "T");
+      var tile = this.props.tile;
+      var tileText, tileClass;
+
+      if (tile.explored) {
+        if (tile.bombed) {
+          tileText = '💣 ';
+          tileClass = 'bombed';
+        } else {
+          var bombCount = tile.adjacentBombCount();
+          tileText = bombCount > 0 ? bombCount : "  ";
+          tileClass = 'explored';
+        }
+      } else if (tile.flagged) {
+        tileText = '🚩';
+        tileClass = 'flagged';
+      } else {
+        tileClass = 'unexplored';
+      }
+
+      tileClass = "tile ".concat(tileClass);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: tileClass,
+        onClick: this.handleClick
+      }, tileText);
     }
   }]);
 
