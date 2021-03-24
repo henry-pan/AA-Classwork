@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.clock-title {
+.title {
   font-weight: 700;
   font-family: Open Sans;
 }
@@ -28,3 +28,62 @@
   display: flex;
   justify-content: space-between;
 }
+
+.tabs-container {
+  margin-left: 40px;
+}
+
+.tab-header {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.tab-header-title {
+  display: flex;
+  font-family: Open Sans;
+  background-color: lightblue;
+  border-top: 2px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 2px solid black;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 4px;
+  width: 65px;
+  justify-content: center;
+}
+
+.active {
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.tab-header-title:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.tab-header-title:first-child {
+  border-left: 2px solid black;
+}
+
+.tab-header-title:last-child {
+  border-right: 2px solid black;
+}
+
+.tab-content {
+  font-family: Open Sans;
+  color: white;
+  background-color: lightblue;
+  width: 196px;
+  height: 200px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
