@@ -60,9 +60,9 @@
 }
 
 .tab-header-title:hover {
-  cursor: pointer;
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .tab-header-title:first-child {
@@ -74,16 +74,16 @@
 }
 
 .tab-content {
-  font-family: Open Sans;
-  color: white;
-  background-color: lightblue;
-  width: 196px;
-  height: 200px;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 196px;
+  height: 200px;
+  font-family: Open Sans;
+  background-color: lightblue;
+  color: white;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
 }
 

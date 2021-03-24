@@ -1,31 +1,26 @@
 import React from "react";
 
-class Header extends React.Component {
+// class Header extends React.Component {
+const Header = (props) => {
+  // constructor (props) {
+  //   super(props);
+  // }
 
-    constructor (props) {
-      super(props);
+  // render () {
+    let tabClass;
+    if (props.index === props.tabIndex) {
+      tabClass = "tab-header-title active";
+    } else {
+      tabClass = "tab-header-title";
     }
 
-    render () {
-      let tabClass;
-      if (this.props.index === this.props.tabIndex) {
-        tabClass = "tab-header-title active";
-      } else {
-        tabClass = "tab-header-title";
-      }
+    return (
+      <span className={tabClass} 
+      onClick={() => props.updateTabIndex(props.index)}>
+      {props.title}</span>
 
-      return (
-        <span className={tabClass} 
-        onClick={() => this.props.updateTabIndex(this.props.index)}>
-        {this.props.title}</span>
-
-      )
-
-    }
-
-
-    
-
+    )
+  // }
 }
 
 export default Header;
