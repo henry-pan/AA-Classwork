@@ -16,9 +16,11 @@ class Board extends React.Component{
           return (<Tile tile={tile} updateGame={this.props.updateGame} key={`${i}-${j}`}/>);
           }
         )}
-      </div>);
+      </div>
+      );
     });
-    return(
+    
+    return (
       <div className="board">{boardRows}</div>
     );
   }

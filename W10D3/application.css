@@ -1,13 +1,57 @@
-.unexplored {
-  border-style: inset;
-  border-style: outset;
-  width: 32px;
-  height: 32px;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+h1 {
+  margin-bottom: 5px;
+}
 
+p {
+  margin: 15px;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
 
 .row {
   display: flex;
+}
 
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: outset;
+  font-size: 28px;
+  font-family: Open Sans;
+  width: 32px;
+  height: 32px;
+  background-color: whitesmoke;
+}
+
+.unexplored {
+  background-color: lightgray;
+}
+
+.explored, .bombed, .flagged {
+  border-style: inset;
+  font-size: 28px;
+}
+
+.explored {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.bombed {
+  background-color: cornflowerblue;
+}
+
+.flagged {
+  background-color: lightgreen;
 }

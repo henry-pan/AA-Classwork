@@ -4,6 +4,7 @@ import * as Minesweeper from "../minesweeper";
 class Tile extends React.Component{
   constructor(props){
     super(props);
+
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -17,11 +18,11 @@ class Tile extends React.Component{
     let tileText, tileClass;
     if (tile.explored) {
       if (tile.bombed) {
-        tileText = '💣 ';
+        tileText = '💥';
         tileClass = 'bombed';
       } else {
         let bombCount = tile.adjacentBombCount();
-        tileText = (bombCount > 0 ? bombCount : "  " );
+        tileText = bombCount > 0 ? bombCount : "  ";
         tileClass = 'explored';
       }
     } else if (tile.flagged) {
@@ -31,6 +32,7 @@ class Tile extends React.Component{
       tileClass = 'unexplored';
     }
     tileClass = `tile ${tileClass}`
+
     return (
       <div className={tileClass} onClick={this.handleClick}>{tileText}</div>
       );
