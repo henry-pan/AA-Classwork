@@ -138,6 +138,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
       board: board
     };
     _this.updateGame = _this.updateGame.bind(_assertThisInitialized(_this));
+    _this.restartGame = _this.restartGame.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -150,15 +151,34 @@ var Game = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "restartGame",
+    value: function restartGame() {
+      var board = new _minesweeper__WEBPACK_IMPORTED_MODULE_1__.Board(9, 10);
+      this.setState({
+        board: board
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var gameOver;
+      var gameOver, modal;
       if (this.state.board.lost()) gameOver = "You lose.";
       if (this.state.board.won()) gameOver = "You win.";
+
+      if (gameOver) {
+        modal = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "modal-screen"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+          className: "modal-content"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, gameOver), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+          onClick: this.restartGame
+        }, "Play Again")));
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_board__WEBPACK_IMPORTED_MODULE_2__.default, {
         board: this.state.board,
         updateGame: this.updateGame
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, gameOver));
+      }), modal);
     }
   }]);
 
