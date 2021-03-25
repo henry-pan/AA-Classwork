@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "./store/store";
-import { receiveTodos, receiveTodo } from "./actions/todo_actions";
+import { receiveTodos, receiveTodo, removeTodo } from "./actions/todo_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,4 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   window.receiveTodos = receiveTodos;
   window.receiveTodo = receiveTodo;
+  window.removeTodo = removeTodo;
 });
