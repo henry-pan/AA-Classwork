@@ -1,9 +1,15 @@
 import React from 'react';
+import TodoListItem from '../todo_list/todo_list_item';
 
-const TodoList = () => {
+const TodoList = (props) => {
+  const todoTitle = props.todos.map( (todo, i) => {
+    return <TodoListItem todo={todo} key={i}/>;
+  });
+
+
   return (
     <div>
-      <h3>Todo List goes here!</h3>
+      <ul>{todoTitle}</ul>
     </div>
   )
 }
