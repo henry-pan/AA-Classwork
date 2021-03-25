@@ -1,5 +1,4 @@
 import React from "react";
-import * as Minesweeper from "../minesweeper";
 import Tile from "./tile";
 
 class Board extends React.Component{
@@ -11,12 +10,14 @@ class Board extends React.Component{
     const board = this.props.board;
     const boardRows = board.grid.map((row, i) => {
       return (
-      <div className='row' key={`row-${i}`}>
-        {row.map((tile, j) => {
-          return (<Tile tile={tile} updateGame={this.props.updateGame} key={`${i}-${j}`}/>);
-          }
-        )}
-      </div>
+        <div className="row" key={`row-${i}`}>
+          {row.map((tile, j) => {
+            return (<Tile tile={tile}
+              updateGame={this.props.updateGame}
+              key={`${i}-${j}`}/>);
+            }
+          )}
+        </div>
       );
     });
     

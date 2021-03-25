@@ -25,7 +25,6 @@ class Game extends React.Component{
   }
 
   render() {
-
     let gameOver, modal;
     if (this.state.board.lost()) gameOver = "You lose.";
     if (this.state.board.won()) gameOver = "You win.";
