@@ -3,26 +3,38 @@ import TodoDetailView from './todo_detail_view';
 import TodoDetailViewContainer from './todo_detail_view_container';
 
 
-const TodoListItem = (props) => {
-    let status = props.todo.done ? "Undo" : "Done";
+class TodoListItem extends React.Component {
+    constructor(props) {
+        super(props);
 
-    return (
-        <li><h1>{props.todo.title}</h1>
-            <button onClick={() => {
-                props.todo.done = !props.todo.done;
-                // let updatedTodo = props.todo;
-                // updatedTodo.done = !updatedTodo.done;
-                props.receiveTodo(props.todo)}}>{status}</button>
-                <TodoDetailViewContainer />
-                </li>
-        // <li>{props.todo.title} - {props.todo.body} 
-        // <button onClick={ () => props.removeTodo(props.todo)}>Delete Todo</button>
-        // <button onClick={ () => {
-        //     props.todo.done = !props.todo.done;
-        //     // let updatedTodo = props.todo;
-        //     // updatedTodo.done = !updatedTodo.done;
-        //     props.receiveTodo(props.todo)}}>{status}</button></li>
-    )
+        this.state = { detail: false }
+
+        this.handleShowDetail = this.handleShowDetail.bind(this);
+        this.handleShowStatus = this.handleShowStatus.bind(this);
+    }
+
+    handleShowDetail() {
+        this.setState({ detail: !this.state.detail});
+    }
+
+    handleShowStatus() {
+        this.props.todo.done = !this.props.todo.done;
+        this.props.receiveTodo(this.props.todo);
+    }
+
+    render() {
+        let status = this.props.todo.done ? "Undo" : "Done";
+    
+        return (
+            <li><h1 onClick={this.handleShowDetail}>{this.props.todo.title}</h1>
+                <button onClick={this.handleShowStatus}>{status}</button>
+                {this.state.detail ? <TodoDetailViewContainer todo={this.props.todo}/> : ""}
+            </li>
+            
+            // <button onClick={ () => props.removeTodo(props.todo)}>Delete Todo</button>
+
+        )
+    }
 }
 
 export default TodoListItem;
