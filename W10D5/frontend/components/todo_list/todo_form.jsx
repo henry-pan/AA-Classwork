@@ -33,7 +33,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="todo-form">
         <h1>Add a Todo</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Title:

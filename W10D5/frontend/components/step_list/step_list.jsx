@@ -12,8 +12,8 @@ const StepList = (props) => {
 
 
   return (
-    <div>
-      <ul>{stepItem}</ul>
+    <div className="steps">
+      <ul className="step-list">{stepItem}</ul>
       <StepForm todo_id={props.todo_id} receiveStep={props.receiveStep} />
     </div>
   )

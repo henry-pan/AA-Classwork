@@ -17,7 +17,7 @@ class StepListItem extends React.Component {
     let status = this.props.step.done ? "Undo" : "Done";
 
     return (
-      <li><h1>{this.props.step.title}</h1>
+      <li className="step-item"><h1>{this.props.step.title}</h1>
         <p>{this.props.step.body}</p>
         <button onClick={this.handleShowStatus}>{status}</button>
         <button onClick={ () => this.props.removeStep(this.props.step)}>Delete Step</button>

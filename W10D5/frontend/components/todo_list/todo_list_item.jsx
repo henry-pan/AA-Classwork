@@ -25,7 +25,7 @@ class TodoListItem extends React.Component {
     let status = this.props.todo.done ? "Undo" : "Done";
 
     return (
-      <li><h1 onClick={this.handleShowDetail}>{this.props.todo.title}</h1>
+      <li className="list-item"><h1 onClick={this.handleShowDetail}>{this.props.todo.title}</h1>
         <button onClick={this.handleShowStatus}>{status}</button>
         {this.state.detail ? <TodoDetailViewContainer todo={this.props.todo} /> : ""}
       </li>
