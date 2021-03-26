@@ -1,21 +1,15 @@
 import React from 'react';
-import TodoForm from '../todo_list/todo_form';
-import TodoListItem from '../todo_list/todo_list_item';
+import StepListContainer from "../step_list/step_list_container";
 
 const TodoDetailView = (props) => {
+  return (
+    <div>
+      <p>{props.todo.body}</p>
 
-
-    // const stepTitle = props.steps.map((step, i) => {
-    //     return (<li>{step.title}</li>)
-    // });
-
-
-    return (
-        <div>
-            <p>{props.todo.body}</p>
-            {/* <ul>{stepTitle}</ul> */}
-        </div>
-    )
+      <ul><StepListContainer todo_id={props.todo.id}/></ul>
+      <button onClick={ () => props.removeTodo(props.todo)}>Delete Todo</button>
+    </div>
+  )
 }
 
 export default TodoDetailView;

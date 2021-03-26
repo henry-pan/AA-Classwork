@@ -5,7 +5,7 @@ import TodoListItem from '../todo_list/todo_list_item';
 const TodoList = (props) => {
   const todoTitle = props.todos.map( (todo, i) => {
     return <TodoListItem 
-              todo={todo} 
+              todo={todo}
               key={i} 
               removeTodo={props.removeTodo} 
               receiveTodo={props.receiveTodo}/>;
