@@ -18,14 +18,14 @@ const receiveErrors = errors => ({
   errors
 });
 
-export const login = user => dispatch => login(user)
+export const loginUser = user => dispatch => login(user)
   .then(user => dispatch(receiveCurrentUser(user)))
-  .catch(errors => dispatch(receiveErrors(errors)));
+  .fail(errors => dispatch(receiveErrors(errors)));
 
-export const logout = () => dispatch => logout()
+export const logoutUser = () => dispatch => logout()
   .then(() => dispatch(logoutCurrentUser()))
-  .catch(errors => dispatch(receiveErrors(errors)));
+  .fail(errors => dispatch(receiveErrors(errors)));
 
-export const signup = user => dispatch => signup(user)
+export const signupUser = user => dispatch => signup(user)
   .then(user => dispatch(receiveCurrentUser(user)))
-  .catch(errors => dispatch(receiveErrors(errors)));
+  .fail(errors => dispatch(receiveErrors(errors)));

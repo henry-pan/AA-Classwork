@@ -1,10 +1,9 @@
 import { RECEIVE_ERRORS, RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
-export default (state = {}, action) => {
-  Object.freeze(state);
+export default (state = [], action) => {
   switch(action.type){
     case RECEIVE_ERRORS:
-      return Object.assign({}, state, { errors: action.errors });
+      return state.concat(action.errors)
     case RECEIVE_CURRENT_USER:
       return []; 
     default:
