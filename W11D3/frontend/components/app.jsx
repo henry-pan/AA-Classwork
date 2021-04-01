@@ -5,9 +5,7 @@ import PokemonIndexContainer from "./pokemon/pokemon_index_container";
 
 const App = () => (
 
-  <div>    
-    <Route path="/" component={PokemonIndexContainer} />
-  </div>
+  <Route path="/" component={PokemonIndexContainer} />
 
 ) 
 
