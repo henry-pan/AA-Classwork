@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Route } from "react-router-dom";
+import LoginFormContainer from '../session_form/login_form_container';
+import SignupFormContainer from '../session_form/signup_form_container';
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
@@ -9,8 +11,8 @@ export default ({ currentUser, logout }) => {
     </div>
   ) : (
     <div>
-      <Link className="btn" to="/signup">Sign Up</Link>
-      <Link className="btn" to="/login">Log In</Link>
+      <Route path="/login" component={LoginFormContainer} />
+      <Route path="/signup" component={SignupFormContainer} />
     </div>
   );
 
